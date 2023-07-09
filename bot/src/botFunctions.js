@@ -280,7 +280,7 @@ export async function splitFile(inputFile, maxSizeMB) {
         // 2. Рассчитать примерное время сжатия для всего видео
         const estimatedTotalTime = (duration / testDuration) * testElapsedTime;
 
-        ctx.reply(`Примерное время сжатия: ${Math.round(estimatedTotalTime / 60)} минут(ы). или ${Math.round(estimatedTotalTime)} секунд`);
+        ctx.reply(`Примерное время сжатия: ${Math.round(estimatedTotalTime / 60)} минут(ы) ${estimatedTotalTime % 60} секунд`);
 
         // Удаление тестового сжатого видео
         fs.unlinkSync(join(saveFolder, channelTitle, testCompressedVideoTitle));
